@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 	pla "github.com/rtuin/go-plalib"
+	. "github.com/rtuin/pla-rpc"
 	"net/http"
-	// "os"
 )
 
 func main() {
-	fmt.Println("Pla-RPC master by Richard Tuin - The remote procedure call version of Pla.\n")
+	var log = SetupLogging()
+	log.Infof("Pla-RPC master by Richard Tuin - Starting server.\n")
 
 	targets, err := pla.LoadTargets("Plafile.yml")
 	if err != nil {
