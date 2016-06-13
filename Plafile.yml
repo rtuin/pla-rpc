@@ -1,0 +1,2 @@
+"saltmaster/update":
+  - "touch ~/foo"

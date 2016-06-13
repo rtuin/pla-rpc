@@ -1,0 +1,20 @@
+# Pla-RPC
+
+Run Pla commands from anywhere!
+
+## Installation
+### Manual
+
+```bash
+$ go get ./...
+```
+
+## Usage
+
+```bash
+$ go run cmd/pla-rpc.go
+```
+
+## Dependencies
+
+* [Pla library](https://github.com/rtuin/go-plalib.git)
