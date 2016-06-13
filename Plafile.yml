@@ -1,2 +1,5 @@
-"saltmaster/update":
+"procedure/one":
   - "touch ~/foo"
+
+"procedure/two":
+  - "touch ~/foo2; echo 'wat?!'; exit 1"

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	pla "github.com/rtuin/go-plalib"
 	. "github.com/rtuin/pla-rpc"
 	"net/http"
@@ -17,8 +16,8 @@ func main() {
 	}
 
 	http.ListenAndServe("localhost:7777", http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
-		fmt.Printf("Request for %v\n", req.RequestURI)
-		fmt.Printf("Targets: %v\n", targets)
+		log.Debugf("Request for %v\n", req.RequestURI)
+		res.Header().Add("Content-Type", "application/json")
 
 		// args := os.Args[1:]
 		// calledTarget := "all"
@@ -33,6 +32,9 @@ func main() {
 		// }
 
 		var params []string
-		pla.RunTargetByName(calledTarget, targets, false, params)
+		var err = pla.RunTargetByName(calledTarget, targets, false, params)
+		if err != nil {
+			res.WriteHeader(http.StatusNotFound)
+		}
 	}))
 }
