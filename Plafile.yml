@@ -1,5 +1,5 @@
-"procedure/one":
+touch:
   - "touch ~/foo"
 
-"procedure/two":
+something:
   - "touch ~/foo2; echo 'wat?!'; exit 1"
