@@ -2,6 +2,15 @@
 
 Run [Pla](http://github.com/rtuin/pla) commands from anywhere!
 
+Not all features of the Plafile.yml format have been implemented in this edition.
+It only supports the basic Plafile structure:
+
+```yaml
+targetname:
+  - echo "foo"
+  - touch ~/bar
+```
+
 ## Installation
 ### Manual
 
