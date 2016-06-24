@@ -24,6 +24,9 @@ $ go get ./...
 $ go run cmd/pla-rpc.go
 ```
 
+Then call a target using:
+`curl http://localhost:7777/targetname`
+
 ## Configuration
 
 By default Pla-RPC binds to `localhost:7777`. You can change this value by passing the `-bind=0.0.0.0:8888` parameter when starting Pla-RPC, like so:
