@@ -1,6 +1,6 @@
 # Pla-RPC
 
-Run Pla commands from anywhere!
+Run [Pla](http://github.com/rtuin/pla) commands from anywhere!
 
 ## Installation
 ### Manual
