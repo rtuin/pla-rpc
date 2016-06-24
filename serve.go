@@ -32,7 +32,7 @@ type PlaHttpResponse struct {
 	Message string `json:"message"`
 }
 
-func ServePlaRpc() {
+func ServePlaRpc(config Config) {
 	log.Debug("Starting server...")
 
 	targets, err := pla.LoadTargets("Plafile.yml")
@@ -43,7 +43,7 @@ func ServePlaRpc() {
 	infinite := make(chan bool)
 
 	go func() {
-		http.ListenAndServe("localhost:7777", http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+		http.ListenAndServe(config.BindAddress, http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 			var responseMessage *PlaHttpResponse
 			log.Debugf("Request for %v\n", req.RequestURI)
 			res.Header().Add("Content-Type", "application/json")
@@ -90,6 +90,6 @@ func ServePlaRpc() {
 		}))
 	}()
 
-	log.Infof("Server running at http://localhost:7777/")
+	log.Infof("Server running at http://%s/", config.BindAddress)
 	<-infinite
 }

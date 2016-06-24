@@ -23,6 +23,7 @@
 package main
 
 import (
+	"flag"
 	. "github.com/rtuin/pla-rpc"
 )
 
@@ -30,5 +31,10 @@ func main() {
 	var log = SetupLogging()
 	log.Infof("Pla-RPC master by Richard Tuin\n")
 
-	ServePlaRpc()
+	bindParam := flag.String("bind", "localhost:7777", "The ip and port to bind for in the format: 0.0.0.0:7777")
+	flag.Parse()
+
+	config := Config{BindAddress: *bindParam}
+
+	ServePlaRpc(config)
 }
